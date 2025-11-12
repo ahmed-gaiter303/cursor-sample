@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI Chatbot Demo — Embed</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="widget.css" />
+</head>
+<body>
+  <!-- root with data attrs -->
+  <div class="page-root">
+    <div class="chat-wrapper" id="chat-widget" data-api-base="http://localhost:8080" data-bot-name="AI Site Assistant" aria-live="polite">
+      <div class="chat-panel" role="dialog" aria-label="Chat with AI assistant" aria-hidden="true">
+        <header class="chat-header">
+          <div class="left">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712100.png" class="bot-avatar" alt="Bot avatar">
+            <div class="title">
+              <div class="name" id="bot-name">AI Site Assistant</div>
+              <div class="status" id="bot-status">Online</div>
+            </div>
+          </div>
+          <div class="right">
+            <!-- we keep a compact close for a11y but main toggle is FAB -->
+            <button class="icon-btn" id="closeBtn" aria-label="Close chat">✕</button>
+          </div>
+        </header>
+
+        <main id="messages" class="chat-messages" role="log">
+          <div class="msg bot">
+            <span>👋 Hello! I'm your AI assistant. Try one of the quick actions below or type a message.</span>
+          </div>
+
+          <!-- Quick actions row (visible at top of chat) -->
+          <div class="quick-actions" id="quickActions" role="toolbar" aria-label="Quick actions">
+            <button class="qa" data-action="faq">Ask FAQ</button>
+            <button class="qa" data-action="pricing">Pricing</button>
+            <button class="qa" data-action="contact">Contact</button>
+          </div>
+
+        </main>
+
+        <footer class="chat-input" role="form" aria-label="Send message">
+          <input id="messageInput" type="text" placeholder="Type a message or press / (slash) to focus" aria-label="Type your message">
+          <button id="sendBtn" aria-label="Send message">Send</button>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Floating Action Button (FAB) -->
+    <button id="chatFab" class="chat-fab" aria-label="Open chat">
+      <span class="fab-icon" aria-hidden="true">💬</span>
+      <span class="fab-badge" id="fabBadge" aria-hidden="true" hidden>0</span>
+    </button>
+  </div>
+
+  <script src="widget.js"></script>
+</body>
+</html>
